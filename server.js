@@ -1,14 +1,11 @@
-const express = require('express');
-const app = express();
-const fs = require('fs');
-const path = require('path');
-const morgan = require('morgan');
+const express = require('express'),
+    app = express(),
+    bodyParser = require('body-parser'),
+    uuid = require('uuid');
 
-app.use(morgan('combined'));
+app.use(bodyParser.json());
 
-app.use('/documentation', express.static('public'));
-
-let topMovies = [
+let movies = [
     {
         title: 'Neon Demon'
     },
@@ -41,19 +38,30 @@ let topMovies = [
     }
 ]
 
+let users = [
+    {
+        id: 1,
+        name: "Nickolas",
+        favoriteMovies: [] 
+    }
+]
+
+// Get ALL Movies (READ)
 app.get('/movies', (req, res) => {
-    res.json(topMovies);
+    res.status(200).json(movies);
   });
 
-  app.get('/', (req, res) => {
-    res.send('Welcome to my Movies App!');
-  });
+// Get data of a single movie by title (READ)
+app.get('/movies/:title', (req, res) => {
+    const {title} = req.params;
+    const movie = movies.find(movie => movie.title === title);
 
-
-  app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-  });
+    if (movie) {
+        res.status(200).json(movie);
+    } else {
+        res.status(400).send("Movie not found!");
+    }
+})
 
   app.listen(8080, () => {
     console.log('Your app is listening on port 8080.');
