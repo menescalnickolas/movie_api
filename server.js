@@ -88,11 +88,26 @@ let movies = [
 
 let users = [
     {
-        id: 1,
-        name: "Nickolas",
-        favoriteMovies: []
+        "id": 1,
+        "name": "Nickolas",
+        "favoriteMovies": []
     }
 ]
+
+// Create New User (CREATE)
+app.post('/users', (req, res) => {
+    const newUser = req.body;
+
+    if (newUser.name) {
+        newUser.id = uuid.v4();
+        users.push(newUser);
+        res.status(201).json(newUser);
+    } else {
+        res.status(400).send('Users need names.')
+    }
+});
+
+
 
 // Get ALL Movies (READ)
 app.get('/movies', (req, res) => {
