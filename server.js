@@ -123,6 +123,19 @@ app.get('/movies/genre/:genreName', (req, res) => {
     }
 });
 
+// Get data of a DIRECTOR by their name (READ)
+app.get('/movies/directors/:directorName', (req, res) => {
+    const { directorName } = req.params;
+    const director = movies.find(movie => movie.director.name === directorName).director;
+
+    if (director) {
+        res.status(200).json(director);
+    } else {
+        res.status(400).send("Director not found!");
+    }
+});
+
+
 
 
 
