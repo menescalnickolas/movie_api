@@ -4,12 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Documentation Page</title>
 </head>
 
 <body>
-    <h1>Documentation Page</h1>
-    <p>This page will contain instructions for other developers on how to use the API I am building. </p>
+    <h1 class="page-title">DOCUMENTATION PAGE</h1>
+    <br>
+    <div>
+        <h3>Introduction</h3>
+        <p>Welcome to the User Management API! This API allows developers to manage a collection of users with simple
+            CRUD operations. The API provides endpoints for creating, reading, updating, and deleting user records. Each
+            user has a unique ID, a name, and a list of favorite movies.</p>
+            <h3>Features</h3>
+            <ul>
+                <li>Create a New User: Add a new user to the database.</li>
+                <li>Retrieve Users: Get a list of all users or a specific user by ID.</li>
+                <li>Update User Information: Modify the details of an existing user.</li>
+                <li>Delete a User: Remove a user from the database.</li>
+                
+            </ul>
+    </div>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Business Logic</th>
+                <th>URL</th>
+                <th>HTTP Method</th>
+                <th>Request Body Data Format</th>
+                <th>Response Body Data Format</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Create New User</td>
+                <td>/users</td>
+                <td>POST</td>
+                <td>None</td>
+                <td>A JSON object with the user's information or "Users need names".</td>
+            </tr>
+            <tr>
+                <td>Update User Info</td>
+                <td>/users/:id</td>
+                <td>PUT</td>
+                <td>A JSON object with the user's updated information. For example: {"name": Updated Name} </td>
+                <td>A JSON object with the user's updated information or "No user found.".</td>
+            </tr>
+            <tr>
+                <td>Add Movie to List of Favorites</td>
+                <td>/users/:id/:movieTitle</td>
+                <td>POST</td>
+                <td>None</td>
+                <td>A message saying "${movieTitle} has been added to user ${id}'s array." OR "No user found.".</td>
+            </tr>
+            <tr>
+                <td>Remove Movie to List of Favorites</td>
+                <td>/users/:id/:movieTitle</td>
+                <td>DELETE</td>
+                <td>None</td>
+                <td>A message saying "${movieTitle} has been removed from user ${id}'s array." OR "No user found.".</td>
+            </tr>
+            <tr>
+                <td>Allow Users to De-Register</td>
+                <td>/users/:id</td>
+                <td>DELETE</td>
+                <td>None</td>
+                <td>A message saying "User ${id} has been deleted." OR "No user found.".</td>
+            </tr>
+            <tr>
+                <td>Get All Movies</td>
+                <td>/movies</td>
+                <td>GET</td>
+                <td>None</td>
+                <td>A JSON object with data of all the movies.</td>
+            </tr>
+            <tr>
+                <td>Get Data Of A Single Movie By Title</td>
+                <td>/movies/:title</td>
+                <td>GET</td>
+                <td>None</td>
+                <td>A JSON object with data about the movie OR the message "Movie not found!".</td>
+            </tr>
+            <tr>
+                <td>Get Data Of A Genre By Genre Name</td>
+                <td>/movies/genre/:genreName</td>
+                <td>GET</td>
+                <td>None</td>
+                <td>A JSON object with data about the genre OR the message "Genre not found!".</td>
+            </tr>
+            <tr>
+                <td>Get Data Of A Director By Their Name</td>
+                <td>/movies/directors/:directorName</td>
+                <td>GET</td>
+                <td>None</td>
+                <td>A JSON object with data about the Director OR the message "Director not found!".</td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 

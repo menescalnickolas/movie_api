@@ -1,0 +1,27 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+thead, tbody, h1 {
+    text-align: center;
+}
+
+thead {
+    background-color: lightgray;
+}
+
+td {
+    height: 60px;
+}
+
+table {
+    margin: 0 auto;
+    width: 90%;
+}
+
+div, p {
+    width: 80%;
+    margin-left: 20px;
+    margin-bottom: 80px;
+    text-align: justify;
+}
