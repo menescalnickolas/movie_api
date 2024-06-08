@@ -72,16 +72,16 @@ let movies = [
         }
     },
     {
-        'title': 'The Help',
-        'year': '2011',
-        'synopsis': 'Skeeter Phelan, an author in the making, embarks upon a writing project that voices the opinion and point of view of African-American house helps during the 1960s. Her project is met with disapproval.',
+        'title': 'I Am Love',
+        'year': '2009',
+        'synopsis': 'At a dinner -- during which her husband, Tancredi (Pippo Delbono), learns that he and his son Edoardo Recchi Jr. (Flavio Parenti) are about to assume control of the Edoardo Recchi Sr.\'s (Gabriele Ferzetti) lucrative business -- Emma (Tilda Swinton) meets a chef named Antonio (Edoardo Gabbriellini). Antonio and Emma soon find themselves in bed together. With the family already divided over the elder Recchi\'s unusual plans, Emma\'s affair is the wild card that might divide the family for good.',
         'genre': {
-            'name': 'Period Drama',
-            'description': 'A historical drama (also period drama, period piece or just period) is a dramatic work set in a past time period, usually used in the context of film and television, which presents historical events and characters with varying degrees of fictional elements such as creative dialogue or fictional scenes which aim to compress separate events or illustrate a broader factual narrative. ',
+            'name': 'Family Drama',
+            'description': 'Family dramas contrast with other forms of drama like Legal Drama and Political Drama in that their conflicts are often a result of personal, family events, like marriages, the death of loved ones or dysfunctional family members, rather than a more grand, general background as in the aforementioned forms of drama.',
         },
         'director': {
-            'name': 'Tate Taylor',
-            'bio': 'Tate Taylor is an American filmmaker and actor. Taylor is best known for directing The Help, Get On Up, and The Girl on the Train.'
+            'name': 'Luca Guadagnino',
+            'bio': 'Luca Guadagnino is an Italian film director and producer. His films are characterized by their emotional complexity, eroticism, and sumptuous visuals.'
         }
     }
 ]
