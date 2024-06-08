@@ -90,7 +90,17 @@ let users = [
     {
         id: 1,
         name: "Nickolas",
-        favoriteMovies: ['Neon Demon']
+        favoriteMovies: ["Neon Demon"]
+    },
+    {
+        id: 2, 
+        name: "Isabella",
+        favoriteMovies: ["Challengers"]
+    },
+    {
+        id: 3, 
+        name: "Katya",
+        favoriteMovies: ["Clue"]
     }
 ]
 
