@@ -10,6 +10,7 @@ const express = require('express'),
     mongoose.connect('mongodb://localhost:27017/TestFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 let movieSchema = mongoose.Schema({
     Title: {type: String, required: true},
