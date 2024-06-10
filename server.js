@@ -18,7 +18,7 @@ const passport = require('passport');
 require('./passport');
 
 // Create New User (CREATE)
-app.post('/users', async (req, res) => {
+app.post('/users', passport.authenticate('jwt', {session: false}),async (req, res) => {
     await Users.findOne({ Username: req.body.Username })
       .then((user) => {
         if (user) {
