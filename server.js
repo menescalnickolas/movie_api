@@ -93,7 +93,7 @@ app.delete('/users/:Username/movies/:MovieID', async (req, res) => {
 
 //Allow Users To De-Register (DELETE)
 app.delete('/users/:Username', async (req, res) => {
-    await Users.findOneAndRemove({ Username: req.params.Username })
+    await Users.findOneAndDelete({ Username: req.params.Username })
       .then((user) => {
         if (!user) {
           res.status(400).send(req.params.Username + ' was not found');
@@ -133,10 +133,10 @@ app.get('/movies/:Title', async (req, res) => {
   });
 
 // Get data of a GENRE by genre title (READ)
-app.get('/movies/:GenreName', async (req, res) => {
-    await Movies.findOne({ GenreName: req.params.Genre.Name })
-      .then((genre) => {
-        res.json(genre);
+app.get('/movies/genres/:genreName', async (req, res) => {
+    await Movies.findOne({ 'Genre.Name': req.params.genreName })
+      .then((movie) => {
+        res.json(movie.Genre);
       })
       .catch((err) => {
         console.error(err);
@@ -145,11 +145,11 @@ app.get('/movies/:GenreName', async (req, res) => {
   });
 
 // Get data of a DIRECTOR by their name (READ)
-app.get('movies/directors/:Name', async (req, res) => {
-    await Movies.findOne({ Director: req.params.Director })
+app.get('/movies/directors/:directorName', async (req, res) => {
+    await Movies.findOne({ 'Director.Name': req.params.directorName })
       .then((movie) => {
         if (movie) {
-          res.json(movie);
+          res.json(movie.Director);
         } else {
           res.status(404).send('Director not found');
         }
