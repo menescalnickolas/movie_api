@@ -12,6 +12,7 @@ const express = require('express'),
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
+let auth = require('./auth')(app);
 
 // Create New User (CREATE)
 app.post('/users', async (req, res) => {
