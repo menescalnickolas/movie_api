@@ -47,28 +47,28 @@
             </tr>
             <tr>
                 <td>Update User Info</td>
-                <td>/users/:id</td>
+                <td>/users/:Username</td>
                 <td>PUT</td>
                 <td>A JSON object with the user's updated information. For example: {"name": Updated Name} </td>
                 <td>A JSON object with the user's updated information or "No user found.".</td>
             </tr>
             <tr>
                 <td>Add Movie to List of Favorites</td>
-                <td>/users/:id/:movieTitle</td>
+                <td>/users/:Username/movies/:MovieID</td>
                 <td>POST</td>
                 <td>None</td>
                 <td>A message saying "${movieTitle} has been added to user ${id}'s array." OR "No user found.".</td>
             </tr>
             <tr>
                 <td>Remove Movie to List of Favorites</td>
-                <td>/users/:id/:movieTitle</td>
+                <td>/users/:Username/movies/:MovieID</td>
                 <td>DELETE</td>
                 <td>None</td>
                 <td>A message saying "${movieTitle} has been removed from user ${id}'s array." OR "No user found.".</td>
             </tr>
             <tr>
                 <td>Allow Users to De-Register</td>
-                <td>/users/:id</td>
+                <td>/users/:Username</td>
                 <td>DELETE</td>
                 <td>None</td>
                 <td>A message saying "User ${id} has been deleted." OR "No user found.".</td>
@@ -82,14 +82,14 @@
             </tr>
             <tr>
                 <td>Get Data Of A Single Movie By Title</td>
-                <td>/movies/:title</td>
+                <td>/movies/:Title</td>
                 <td>GET</td>
                 <td>None</td>
                 <td>A JSON object with data about the movie OR the message "Movie not found!".</td>
             </tr>
             <tr>
                 <td>Get Data Of A Genre By Genre Name</td>
-                <td>/movies/genre/:genreName</td>
+                <td>/movies/genres/:genreName</td>
                 <td>GET</td>
                 <td>None</td>
                 <td>A JSON object with data about the genre OR the message "Genre not found!".</td>
