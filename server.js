@@ -14,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 
 let auth = require('./auth')(app);
 
+const passport = require('passport');
+require('./passport');
+
 // Create New User (CREATE)
 app.post('/users', async (req, res) => {
     await Users.findOne({ Username: req.body.Username })
