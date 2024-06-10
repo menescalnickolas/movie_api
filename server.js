@@ -18,7 +18,7 @@ const passport = require('passport');
 require('./passport');
 
 // Create New User (CREATE)
-app.post('/users', passport.authenticate('jwt', {session: false}),async (req, res) => {
+app.post('/users', async (req, res) => {
     await Users.findOne({ Username: req.body.Username })
       .then((user) => {
         if (user) {
@@ -113,7 +113,7 @@ app.delete('/users/:Username', async (req, res) => {
 
 
 // Get ALL Movies (READ)
-app.get('/movies', async (req, res) => {
+app.get('/movies', passport.authenticate('jwt', {session: false}),async (req, res) => {
     await Movies.find()
       .then((users) => {
         res.status(201).json(users);
