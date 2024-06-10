@@ -6,7 +6,8 @@ const express = require('express'),
     Models = require('./models.js'),
     Movies = Models.Movie,
     Users = Models.User;
-    
+
+    mongoose.connect('mongodb://localhost:27017/TestFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.json());
 
