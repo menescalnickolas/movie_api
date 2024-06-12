@@ -7,9 +7,13 @@ const express = require('express'),
   Movies = Models.Movie,
   Users = Models.User;
 
-  const { check, validationResult } = require('express-validator');
+const { check, validationResult } = require('express-validator');
 
-mongoose.connect('mongodb://localhost:27017/TestFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost:27017/TestFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connect('mongodb+srv://nickolasmenescal:nickolasmenescalpassword@cluster0.zfj1oi8.mongodb.net/myFlixDB?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
+
+
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,7 +28,7 @@ require('./passport');
 
 //Create New User (CREATE)
 app.post('/users', [
-  check('Username', 'Username is required').isLength({min: 5}),
+  check('Username', 'Username is required').isLength({ min: 5 }),
   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
   check('Password', 'Password is required').not().isEmpty(),
   check('Email', 'Email does not appear to be valid').isEmail()
@@ -40,7 +44,7 @@ app.post('/users', [
   await Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
     .then((user) => {
       if (user) {
-      //If the user is found, send a response that it already exists
+        //If the user is found, send a response that it already exists
         return res.status(400).send(req.body.Username + ' already exists');
       } else {
         Users
@@ -196,6 +200,6 @@ app.get('/movies/directors/:directorName', passport.authenticate('jwt', { sessio
 
 
 const port = process.env.PORT || 8080;
-app.listen(port, '0.0.0.0',() => {
- console.log('Listening on Port ' + port);
+app.listen(port, '0.0.0.0', () => {
+  console.log('Listening on Port ' + port);
 });
