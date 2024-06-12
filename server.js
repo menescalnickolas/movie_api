@@ -7,6 +7,8 @@ const express = require('express'),
   Movies = Models.Movie,
   Users = Models.User;
 
+  const { check, validationResult } = require('express-validator');
+
 mongoose.connect('mongodb://localhost:27017/TestFlixDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.json());
