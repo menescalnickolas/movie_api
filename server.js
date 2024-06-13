@@ -10,7 +10,7 @@ const express = require('express'),
 
   const { check, validationResult } = require('express-validator');
 
-  let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+  let allowedOrigins = ['http://localhost:8080', 'https://mytestflix-f8c80ead2790.herokuapp.com/'];
 
 app.use(cors({
   origin: (origin, callback) => {
