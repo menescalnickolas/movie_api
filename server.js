@@ -26,6 +26,11 @@ let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
 
+// Define a route for the root path
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
+
 //Create New User (CREATE)
 app.post('/users', [
   check('Username', 'Username is required').isLength({ min: 5 }),
