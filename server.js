@@ -28,7 +28,7 @@ require('./passport');
 
 // Define a route for the root path
 app.get('/', (req, res) => {
-  res.send('Hello, world!');
+  res.send('Welcome to TestFlixDB!');
 });
 
 //Create New User (CREATE)
