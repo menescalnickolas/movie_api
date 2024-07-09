@@ -174,11 +174,11 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), async (req,
     });
 });
 
-// Get data of a single movie by title (READ)
+// Get data of a MOVIE by  title (READ)
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), async (req, res) => {
-  await Movies.findOne({ Title: req.params.Title })
-    .then((user) => {
-      res.json(user);
+  await Movies.findOne({ 'Movie.Title': req.params.genreName })
+    .then((movie) => {
+      res.json(movie.Title);
     })
     .catch((err) => {
       console.error(err);
