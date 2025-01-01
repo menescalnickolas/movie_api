@@ -215,6 +215,49 @@ app.get('/movies/directors/:directorName', passport.authenticate('jwt', { sessio
 });
 
 
+/*
+// Add New Movie (CREATE)
+app.post('/movies', [
+  check('Title', 'Title is required').not().isEmpty(),
+  check('Description', 'Description is required').not().isEmpty(),
+  check('Genre', 'Genre is required').not().isEmpty(),
+  check('Director', 'Director is required').not().isEmpty(),
+], passport.authenticate('jwt', { session: false }), async (req, res) => {
+  
+  let errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+  
+  await Movies.findOne({ Title: req.body.Title })
+    .then((movie) => {
+      if (movie) {
+        return res.status(400).send('Movie with title "' + req.body.Title + '" already exists');
+      } else {
+        Movies.create({
+          Title: req.body.Title,
+          Description: req.body.Description,
+          Genre: req.body.Genre,
+          Director: req.body.Director,
+          ImagePath: req.body.ImagePath,
+        })
+        .then((newMovie) => {
+          res.status(201).json(newMovie);
+        })
+        .catch((error) => {
+          console.error(error);
+          res.status(500).send('Error: ' + error);
+        });
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send('Error: ' + error);
+    });
+});
+
+*/
+
 
 
 
